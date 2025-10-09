@@ -100,8 +100,8 @@ int main(void)
 	/* Solution 1 BEGIN */
 	cnt = (cnt + 1) % 60;
 	HAL_GPIO_WritePin(LED_R_GPIO_Port, LED_R_Pin, cnt / 2 % 2);
-	HAL_GPIO_WritePin(LED_R_GPIO_Port, LED_R_Pin, cnt / 3 % 2);
-	HAL_GPIO_WritePin(LED_R_GPIO_Port, LED_R_Pin, cnt / 5 % 2);
+	HAL_GPIO_WritePin(LED_G_GPIO_Port, LED_G_Pin, cnt / 3 % 2);
+	HAL_GPIO_WritePin(LED_B_GPIO_Port, LED_B_Pin, cnt / 5 % 2);
 	/* Solution 1 END */
 	
 	/* Solution 2 BEGIN */
