@@ -11,8 +11,7 @@ void BSP_UART_Transmit_DMA(BSP_UART_HandleTypeDef *buart, const char *format, ..
 {
 	va_list ap;
 	va_start(ap, format);
-	while (buart->huart->gState != HAL_UART_STATE_READY \
-		|| buart->huart->hdmatx->State != HAL_DMA_STATE_READY);
+	while (buart->huart->gState != HAL_UART_STATE_READY);
 	vsnprintf(buart->pTxMsg, UART_BUF_SIZE, format, ap);
 	va_end(ap);
 	HAL_UART_Transmit_DMA(buart->huart, (uint8_t *)buart->pTxMsg, strlen(buart->pTxMsg));
