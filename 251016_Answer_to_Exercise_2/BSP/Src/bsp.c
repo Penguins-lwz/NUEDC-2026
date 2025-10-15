@@ -2,13 +2,11 @@
 #include "bsp_gpio.h"
 
 enum {
-	LOCK = 0U,
+	LOCK,
 	UNLOCK_R,
 	UNLOCK_G,
 	UNLOCK_B,
 } status = LOCK;
-
-uint32_t cnt = 0;
 
 static void PeriodicProcess(void);
 
@@ -33,6 +31,7 @@ static void PeriodicProcess(void)
 	else if (keyStatus == KEY_S3_TAP || keyStatus == KEY_S3_HOLD) status = UNLOCK_B;
 	else if (keyStatus == (KEY_S1_HOLD | KEY_S4_HOLD)) status = LOCK;
 	
+	static uint32_t cnt = 0;
 	cnt = (cnt + 1) % 200;
 	IO_WR(LED_R, status != UNLOCK_R || cnt / 100 % 2);
 	IO_WR(LED_G, status != UNLOCK_G || cnt / 50  % 2);
