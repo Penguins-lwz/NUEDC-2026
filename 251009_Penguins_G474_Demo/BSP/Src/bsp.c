@@ -68,7 +68,7 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
 {
 	if (huart == buart.huart)
 	{
-		BSP_UART_Transmit_DMA(&buart, "RxMsg: %s", buart.pRxMsg);
+		BSP_UART_Transmit_DMA(&buart, "RxLen: %u, RxMsg: %s", Size, buart.pRxMsg);
 		BSP_UART_ReceiveToIdle_DMA(&buart);
 	}
 }
