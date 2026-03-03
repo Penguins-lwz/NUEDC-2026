@@ -2,7 +2,7 @@
 
 本文件夹工程用于电赛培训，适配开发板 Penguins-G474，主控为 STM32G474VET6。
 
-本文件夹工程均配置为超频模式，运行主频 200 MHz，由`mclk_modifier.bat`实现。
+本文件夹工程均配置为超频模式，运行主频 200 MHz，由 `mclk_modifier.bat` 实现。
 
 ### 开发环境
 
