@@ -5,8 +5,6 @@ static void PeriodicProcess(void);
 
 void MainProcess(void)
 {
-	/* Note: This project is overclocked to 200 MHz automatically. */
-	
 	LED_WR(0x00);
 	
 	HAL_TIM_Base_Start_IT(&htim15);
