@@ -18,11 +18,11 @@ static const float32_t pCoefs[FIR_TAP_SIZE] = {
 	 5.296254e-05,
 };
 
-static float32_t FIR_Buffer[FIR_SRC_SIZE + FIR_TAP_SIZE - 1];
+static float32_t pState[FIR_SRC_SIZE + FIR_TAP_SIZE - 1];
 
 void BSP_FIR_f32(const float32_t *pSrc, float32_t *pDst)
 {
 	arm_fir_instance_f32 S;
-	arm_fir_init_f32(&S, FIR_TAP_SIZE, pCoefs, FIR_Buffer, FIR_SRC_SIZE);
+	arm_fir_init_f32(&S, FIR_TAP_SIZE, pCoefs, pState, FIR_SRC_SIZE);
 	arm_fir_f32(&S, pSrc, pDst, FIR_SRC_SIZE);
 }
