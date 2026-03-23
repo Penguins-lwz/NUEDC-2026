@@ -1,0 +1,46 @@
+/**
+ * These arguments were used when this file was generated. They will be automatically applied on subsequent loads
+ * via the GUI or CLI. Run CLI with '--help' for additional information on how to override these arguments.
+ * @cliArgs --board "/ti/boards/LP_MSPM0G3507" --product "mspm0_sdk@2.10.00.04"
+ * @v2CliArgs --board "/ti/boards/LP_MSPM0G3507" --product "mspm0_sdk@2.10.00.04"
+ * @versions {"tool":"1.27.0+4565"}
+ */
+
+/**
+ * Import the modules used in this configuration.
+ */
+const Board  = scripting.addModule("/ti/driverlib/Board");
+const SYSCTL = scripting.addModule("/ti/driverlib/SYSCTL");
+
+/**
+ * Write custom configuration values to the imported modules.
+ */
+const divider9       = system.clockTree["UDIV"];
+divider9.divideValue = 2;
+
+const multiplier2         = system.clockTree["PLL_QDIV"];
+multiplier2.multiplyValue = 4;
+
+const mux4       = system.clockTree["EXHFMUX"];
+mux4.inputSelect = "EXHFMUX_XTAL";
+
+const mux8       = system.clockTree["HSCLKMUX"];
+mux8.inputSelect = "HSCLKMUX_SYSPLL0";
+
+const mux12       = system.clockTree["SYSPLLMUX"];
+mux12.inputSelect = "zSYSPLLMUX_HFCLK";
+
+const pinFunction4                        = system.clockTree["HFXT"];
+pinFunction4.inputFreq                    = 40;
+pinFunction4.enable                       = true;
+pinFunction4.HFXTStartup                  = 8;
+pinFunction4.HFCLKMonitor                 = true;
+pinFunction4.peripheral.$assign           = "SYSCTL";
+pinFunction4.peripheral.hfxInPin.$assign  = "j17_expansion.4";
+pinFunction4.peripheral.hfxOutPin.$assign = "j17_expansion.5";
+
+Board.peripheral.$assign          = "DEBUGSS";
+Board.peripheral.swclkPin.$assign = "j25_expansion.16";
+Board.peripheral.swdioPin.$assign = "j25_expansion.14";
+
+SYSCTL.clockTreeEn = true;
