@@ -32,6 +32,7 @@ void MainProcess(void)
 	/* Note: This project is overclocked to 200 MHz automatically. */
 	
 	LCD_Init(&blcd, &LCD_Font_1608, NULL, WHITE, BLACK);
+	LCD_Print(&blcd, 0, 16 * 0, "DAC Manual");
 	
 	HAL_DAC_Start(&hdac1, DAC_CHANNEL_1);
 	

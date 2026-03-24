@@ -28,6 +28,7 @@ void MainProcess(void)
 	/* Note: This project is overclocked to 200 MHz automatically. */
 	
 	LCD_Init(&blcd, &LCD_Font_1608, NULL, WHITE, BLACK);
+	LCD_Print(&blcd, 0, 16 * 0, "DDS AD9959");
 	
 	DEV_DDS_Init();
 	DEV_DDS_Config(DDS_CHANNEL_0, 1000000,   0, 1023);

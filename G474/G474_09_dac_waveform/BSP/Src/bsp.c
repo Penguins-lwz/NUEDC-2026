@@ -34,6 +34,7 @@ void MainProcess(void)
 	/* Note: This project is overclocked to 200 MHz automatically. */
 	
 	LCD_Init(&blcd, &LCD_Font_1608, NULL, WHITE, BLACK);
+	LCD_Print(&blcd, 0, 16 * 0, "DAC Waveform");
 	
 	for (uint32_t i = 0; i < DAC_BUF_SIZE; ++i)
 		gdac_ConvData[i] = 2048 + 2047 * sinf(2.0f * PI * i / DAC_BUF_SIZE);

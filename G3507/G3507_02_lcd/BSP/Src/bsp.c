@@ -46,16 +46,11 @@ static void PeriodicProcess(void)
 {
 	uint8_t keyStatus = KEY_Read();
 	
-	switch (keyStatus)
-	{
-		case KEY_S1_TAP    : LED_ON(R); break;
-		case KEY_S1_HOLD   : LED_OF(R); break;
-		case KEY_S2_TAP    : LED_ON(G); break;
-		case KEY_S2_HOLD   : LED_OF(G); break;
-		case KEY_S1_S2_TAP : LED_ON(B); break;
-		case KEY_S1_S2_HOLD: LED_OF(B); break;
-		default: break;
-	}
+	static uint16_t timeCnt = 0;
+	if (++timeCnt < 10) return;
+	timeCnt = 0;
+	
+	LED_TG(R);
 }
 
 void TIMER_0_INST_IRQHandler(void)
