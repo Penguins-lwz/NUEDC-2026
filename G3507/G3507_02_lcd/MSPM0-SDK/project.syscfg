@@ -88,7 +88,7 @@ GPIO3.associatedPins[4].pin.$assign  = "boosterpack.15";
 
 SYSCTL.clockTreeEn = true;
 
-TIMER1.$name              = "TIMER_0";
+TIMER1.$name              = "TIMG_0";
 TIMER1.timerClkPrescale   = 40;
 TIMER1.timerMode          = "PERIODIC_UP";
 TIMER1.timerPeriod        = "10 ms";

@@ -15,7 +15,7 @@ static void PeriodicProcess(void);
 int main(void)
 {
 	SYSCFG_DL_init();
-	NVIC_EnableIRQ(TIMER_0_INST_INT_IRQN);
+	NVIC_EnableIRQ(TIMG_0_INST_INT_IRQN);
 	
 	LCD_Init(&blcd, &LCD_Font_1608, &LCD_Font_1616, WHITE, BLACK);
 	
@@ -34,7 +34,7 @@ int main(void)
 	LCD_ConfigFont(&blcd, &LCD_Font_1608, NULL, FUCHSIA, BLACK);
 	LCD_Print(&blcd, 0, 16 * 7, "    Penguins-lwz    ");
 	
-	DL_Timer_startCounter(TIMER_0_INST);
+	DL_Timer_startCounter(TIMG_0_INST);
 	
 	while (1)
 	{
@@ -53,9 +53,9 @@ static void PeriodicProcess(void)
 	LED_TG(R);
 }
 
-void TIMER_0_INST_IRQHandler(void)
+void TIMG_0_INST_IRQHandler(void)
 {
-	switch (DL_Timer_getPendingInterrupt(TIMER_0_INST))
+	switch (DL_Timer_getPendingInterrupt(TIMG_0_INST))
 	{
 		case DL_TIMER_IIDX_ZERO:
 			PeriodicProcess();

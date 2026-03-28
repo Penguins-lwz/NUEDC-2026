@@ -50,7 +50,7 @@ SYSCONFIG_WEAK void SYSCFG_DL_init(void)
     SYSCFG_DL_GPIO_init();
     /* Module-Specific Initializations*/
     SYSCFG_DL_SYSCTL_init();
-    SYSCFG_DL_TIMER_0_init();
+    SYSCFG_DL_TIMG_0_init();
 }
 
 
@@ -59,11 +59,11 @@ SYSCONFIG_WEAK void SYSCFG_DL_initPower(void)
 {
     DL_GPIO_reset(GPIOA);
     DL_GPIO_reset(GPIOB);
-    DL_TimerG_reset(TIMER_0_INST);
+    DL_TimerG_reset(TIMG_0_INST);
 
     DL_GPIO_enablePower(GPIOA);
     DL_GPIO_enablePower(GPIOB);
-    DL_TimerG_enablePower(TIMER_0_INST);
+    DL_TimerG_enablePower(TIMG_0_INST);
     delay_cycles(POWER_STARTUP_DELAY);
 }
 
@@ -231,7 +231,7 @@ SYSCONFIG_WEAK void SYSCFG_DL_SYSCTL_init(void)
  * timerClkFreq = (timerClkSrc / (timerClkDivRatio * (timerClkPrescale + 1)))
  *   1000000 Hz = 40000000 Hz / (1 * (39 + 1))
  */
-static const DL_TimerG_ClockConfig gTIMER_0ClockConfig = {
+static const DL_TimerG_ClockConfig gTIMG_0ClockConfig = {
     .clockSel    = DL_TIMER_CLOCK_BUSCLK,
     .divideRatio = DL_TIMER_CLOCK_DIVIDE_1,
     .prescale    = 39U,
@@ -239,24 +239,24 @@ static const DL_TimerG_ClockConfig gTIMER_0ClockConfig = {
 
 /*
  * Timer load value (where the counter starts from) is calculated as (timerPeriod * timerClockFreq) - 1
- * TIMER_0_INST_LOAD_VALUE = (10 ms * 1000000 Hz) - 1
+ * TIMG_0_INST_LOAD_VALUE = (10 ms * 1000000 Hz) - 1
  */
-static const DL_TimerG_TimerConfig gTIMER_0TimerConfig = {
-    .period     = TIMER_0_INST_LOAD_VALUE,
+static const DL_TimerG_TimerConfig gTIMG_0TimerConfig = {
+    .period     = TIMG_0_INST_LOAD_VALUE,
     .timerMode  = DL_TIMER_TIMER_MODE_PERIODIC_UP,
     .startTimer = DL_TIMER_STOP,
 };
 
-SYSCONFIG_WEAK void SYSCFG_DL_TIMER_0_init(void) {
+SYSCONFIG_WEAK void SYSCFG_DL_TIMG_0_init(void) {
 
-    DL_TimerG_setClockConfig(TIMER_0_INST,
-        (DL_TimerG_ClockConfig *) &gTIMER_0ClockConfig);
+    DL_TimerG_setClockConfig(TIMG_0_INST,
+        (DL_TimerG_ClockConfig *) &gTIMG_0ClockConfig);
 
-    DL_TimerG_initTimerMode(TIMER_0_INST,
-        (DL_TimerG_TimerConfig *) &gTIMER_0TimerConfig);
-    DL_TimerG_enableInterrupt(TIMER_0_INST , DL_TIMERG_INTERRUPT_ZERO_EVENT);
-	NVIC_SetPriority(TIMER_0_INST_INT_IRQN, 1);
-    DL_TimerG_enableClock(TIMER_0_INST);
+    DL_TimerG_initTimerMode(TIMG_0_INST,
+        (DL_TimerG_TimerConfig *) &gTIMG_0TimerConfig);
+    DL_TimerG_enableInterrupt(TIMG_0_INST , DL_TIMERG_INTERRUPT_ZERO_EVENT);
+	NVIC_SetPriority(TIMG_0_INST_INT_IRQN, 1);
+    DL_TimerG_enableClock(TIMG_0_INST);
 
 
 

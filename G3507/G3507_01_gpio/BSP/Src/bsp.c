@@ -6,8 +6,8 @@ static void PeriodicProcess(void);
 int main(void)
 {
 	SYSCFG_DL_init();
-	NVIC_EnableIRQ(TIMER_0_INST_INT_IRQN);
-	DL_Timer_startCounter(TIMER_0_INST);
+	NVIC_EnableIRQ(TIMG_0_INST_INT_IRQN);
+	DL_Timer_startCounter(TIMG_0_INST);
 	
 	while (1)
 	{
@@ -31,9 +31,9 @@ static void PeriodicProcess(void)
 	}
 }
 
-void TIMER_0_INST_IRQHandler(void)
+void TIMG_0_INST_IRQHandler(void)
 {
-	switch (DL_Timer_getPendingInterrupt(TIMER_0_INST))
+	switch (DL_Timer_getPendingInterrupt(TIMG_0_INST))
 	{
 		case DL_TIMER_IIDX_ZERO:
 			PeriodicProcess();
