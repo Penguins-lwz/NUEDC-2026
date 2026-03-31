@@ -61,6 +61,8 @@ MSPM0-SDK v2.09.00.01+ 存在已知问题，未就 SysConfig v1.26.0+ 对 `packa
 Command=C:\ti\sysconfig_1.27.0\nw\nw.exe C:\ti\sysconfig_1.27.0\app
 ```
 
+此问题已提交至 TI 客户支持中心并要求发布至 [E2E 论坛](https://e2e.ti.com/support/microcontrollers/msp-low-power-microcontrollers-group/msp430/f/msp-low-power-microcontroller-forum/1628616/mspm0c1103-bug-report-mspm0-sdk-v2-09-sysconfig-import-path-issue-with-mdk-arm-keil-fix-attached)，但被错误添加 MSPM0C1103 标签。
+
 ### Problem III
 
 MSPM0-SDK v1.00.00.04+ 存在已知问题，开发板 [LP-MSPM0G3507](https://www.ti.com.cn/tool/cn/LP-MSPM0G3507) 的 BSL 按键 PA18 在已有外部下拉电阻的条件下，SysConfig 应用 Launch Pad Shortcut 时被错误配置使能内部上拉电阻，导致不能正确读取数字电平，应主动调整为不使能内部上下拉电阻解决。
