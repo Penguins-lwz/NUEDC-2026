@@ -13,6 +13,18 @@
 |CH341SER|v3.9.1|USB 转串口芯片驱动|[HomePage](https://www.wch.cn/downloads/CH341SER_EXE.html)|
 |VOFA+|v1.3.10|插件驱动的高自由度上位机|[HomePage](https://www.vofa.plus/downloads)|
 
+## 技术文档
+
+|文档类型|文档名称|下载链接|
+|-|-|-|
+|数据手册|MSPM0G350x 混合信号微控制器，具备 CAN-FD 接口|[英文](https://www.ti.com/lit/gpn/mspm0g3507)／[中文](https://www.ti.com.cn/cn/lit/gpn/mspm0g3507)|
+|参考手册|MSPM0 G 系列 80MHz 微控制器|[英文](https://www.ti.com.cn/cn/lit/pdf/slau846)／中文|
+|勘误手册|MSPM0G3x0x、MSPM0G1x0x、MSPM0G3x0x-Q1 微控制器|[英文](https://www.ti.com/lit/pdf/slaz742f)／[中文](https://www.ti.com.cn/cn/lit/pdf/zhcz042)|
+|应用笔记|MSPM0 G 系列 MCU 硬件开发指南|[英文](https://www.ti.com/lit/pdf/slaae76d)／[中文](https://www.ti.com.cn/cn/lit/pdf/zhcaby3)|
+|应用笔记|MSPM0 MCU 快速参考指南|[英文](https://www.ti.com/lit/pdf/slaae70)／[中文](https://www.ti.com.cn/cn/lit/pdf/zhcabz0)|
+|用户指南|MSPM0 MCU 开发指南|[英文](https://www.ti.com/lit/pdf/slaaed1)／[中文](https://www.ti.com.cn/cn/lit/pdf/zhcacr5)|
+|用户指南|MSPM0G3507 LaunchPad 开发套件 (LP-MSPM0G3507)|[英文](https://www.ti.com.cn/lit/pdf/slau873)／[中文](https://www.ti.com.cn/cn/lit/pdf/zhcuav3)|
+
 ## 注意事项
 
 ### Notice I
