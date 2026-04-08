@@ -69,7 +69,7 @@ void MainProcess(void)
 		{
 			adcConvCpltFlag = 0;
 			for (uint32_t i = 0; i < ADC_PER_CHAN; ++i)
-				BSP_UART_Transmit_DMA(&buart, "[%02u]: %u, %u\n", i, gadc_ConvData[i * 2], gadc_ConvData[i * 2 + 1]);
+				BSP_UART_Transmit_DMA(&buart, "[%03u]: %u, %u\n", i, gadc_ConvData[i * 2], gadc_ConvData[i * 2 + 1]);
 		}
 	}
 }
@@ -91,7 +91,7 @@ static void PeriodicProcess(void)
 	LED_TG(R);
 }
 
-static void SignalAnalysis(APP_SIG_HandleTypeDef *asig, uint16_t *pData, uint32_t sample_per_period)
+static void SignalAnalysis(APP_SIG_HandleTypeDef *asig, const uint16_t *pData, uint32_t sample_per_period)
 {
 	uint16_t val;
 	uint16_t min  = 4095;
