@@ -61,7 +61,7 @@ static void PeriodicProcess(void)
 		DAC1->DHR12R1 = sigVolt * 4096 / VREF;
 	}
 	
-	static uint16_t timeCnt = 0;
+	static uint32_t timeCnt = 0;
 	if (++timeCnt < 10) return;
 	timeCnt = 0;
 	

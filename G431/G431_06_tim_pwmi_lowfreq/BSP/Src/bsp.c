@@ -40,7 +40,7 @@ static void PeriodicProcess(void)
 {
 	uint8_t keyStatus = KEY_Read();
 	
-	static uint16_t timeCnt = 0;
+	static uint32_t timeCnt = 0;
 	if (++timeCnt < 10) return;
 	timeCnt = 0;
 	

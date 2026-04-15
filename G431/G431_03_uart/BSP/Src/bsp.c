@@ -42,7 +42,7 @@ void MainProcess(void)
 
 static void PeriodicProcess(void)
 {
-	static uint16_t cnt = 0;
+	static uint32_t cnt = 0;
 	uint8_t keyStatus = KEY_Read();
 	if (keyStatus == 0x00) return;
 	

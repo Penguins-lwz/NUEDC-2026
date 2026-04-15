@@ -68,7 +68,7 @@ static void PeriodicProcess(void)
 		TIM6->ARR = 2000000 / sigFreq - 1;
 	}
 	
-	static uint16_t timeCnt = 0;
+	static uint32_t timeCnt = 0;
 	if (++timeCnt < 10) return;
 	timeCnt = 0;
 	

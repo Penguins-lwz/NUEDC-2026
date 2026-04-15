@@ -50,7 +50,7 @@ static void PeriodicProcess(void)
 	if (keyStatus & KEY_NUM_S3) da6++, da6 %= 6, TIM16->CCR1 = varD[da6];
 	if (keyStatus & KEY_NUM_S4) da7++, da7 %= 6, TIM17->CCR1 = varD[da7];
 	
-	static uint16_t timeCnt = 0;
+	static uint32_t timeCnt = 0;
 	if (++timeCnt < 10) return;
 	timeCnt = 0;
 	
