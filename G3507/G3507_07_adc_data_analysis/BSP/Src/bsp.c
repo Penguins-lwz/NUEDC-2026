@@ -20,7 +20,7 @@ typedef struct {
 
 char     guart0_TxMsg[UART_BUF_SIZE];
 char     guart0_RxMsg[UART_BUF_SIZE];
-uint16_t gadc_ConvData[ADC_BUF_SIZE];
+uint16_t gadc_ConvData[ADC_BUF_SIZE] __attribute__((aligned(4)));
 uint16_t glcd_TxBuf[LCD_BUF_SIZE];
 
 __IO uint32_t adcConvCpltFlag = 0;
